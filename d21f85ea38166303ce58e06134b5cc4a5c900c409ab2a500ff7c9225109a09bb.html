@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiztech - Advanced Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poetsen+One&display=swap");
+    </style>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+      body {
+        background: #f0f2f5;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        text-decoration: none;
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+      }
+      .mode-title {
+        top: 12%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        font-size: 35px;
+        font-weight: bold;
+        background-image: url("e54faa32853ba20052d11b3c8eaab40c4b24baf56866c0451e038cb501152df2.jpg");
+        border: 2px solid rgb(0, 0, 0);
+        width: 300px;
+        height: 45px;
+        color: rgb(255, 255, 255);
+        cursor: default;
+        -webkit-text-stroke: 1px;
+        -webkit-text-stroke-color: rgb(0, 0, 0);
+        border-radius: 10px;
+        text-align: center;
+        white-space: nowrap;
+        animation: 0.5s titlemode ease 0s;
+      }
+      @keyframes titlemode {
+        from {
+          transform: translate(-150px, -150px);
+        }
+        to {
+          transform: translate(-150px, -23px);
+        }
+      }
+      .mode-container {
+        margin: 20px;
+      }
+      .normal-content {
+        width: 500px;
+        height: 125px;
+        background-color: rgba(16, 72, 0, 0.6);
+        border: 2px solid rgba(0, 0, 0, 1);
+        border-radius: 20px;
+        text-decoration: none;
+        animation: 2.5s normalmode ease;
+      }
+      @keyframes normalmode {
+        0%,
+        80% {
+          transform: translate(0px, -150px);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(0px, 0px);
+          opacity: 1;
+        }
+      }
+      .normal-content:hover {
+        text-decoration: none;
+        background-color: rgba(16, 72, 0, 1);
+        overflow: auto;
+      }
+      .normal-content:hover .normal-description {
+        animation: fadeone 0.5s ease forwards;
+      }
+      @keyframes fadeone {
+        to {
+          opacity: 1;
+        }
+      }
+      .normal-content:hover .normal-text {
+        animation: fadeonereverse 0.5s ease forwards;
+      }
+      @keyframes fadeonereverse {
+        to {
+          opacity: 0;
+        }
+      }
+      .normal-text span {
+        display: inline-block;
+        opacity: 0;
+        font-size: 30px;
+        font-family: "Poetsen One", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        color: rgba(255, 255, 255, 1);
+        transform: translateY(-50px);
+        animation: fallone 1s ease forwards;
+        text-align: center;
+        margin-top: 45px;
+        text-decoration: none;
+        z-index: 1;
+        font-variation-settings: "BEVL" 0, "OVAL" 0, "QUAD" 0, "SIZE" 0;
+      }
+      .normal-block {
+        position: fixed;
+      }
+      .normal-card {
+        text-decoration: none;
+      }
+      .normal-text {
+        text-align: center;
+        text-decoration: none;
+        margin-left: 185px;
+      }
+      .normal-description {
+        text-decoration: none;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+        text-align: justify;
+        padding-inline: 25px;
+        opacity: 0;
+        margin: 10px;
+      }
+      .normal-content::-webkit-scrollbar {
+        display: none;
+      }
+      @keyframes fallone {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .normal-text span:nth-child(1) {
+        animation-delay: 2.6s;
+      }
+      .normal-text span:nth-child(2) {
+        animation-delay: 2.65s;
+      }
+      .normal-text span:nth-child(3) {
+        animation-delay: 2.7s;
+      }
+      .normal-text span:nth-child(4) {
+        animation-delay: 2.8s;
+      }
+      .normal-text span:nth-child(5) {
+        animation-delay: 2.9s;
+      }
+      .normal-text span:nth-child(6) {
+        animation-delay: 2.95s;
+      }
+
+      .hard-content {
+        width: 500px;
+        height: 125px;
+        background-color: rgba(255, 255, 0, 0.4);
+        border: 2px solid rgba(0, 0, 0, 1);
+        border-radius: 20px;
+        text-decoration: none;
+        margin-block: 20px;
+        animation: 2.75s hardmode ease;
+      }
+      @keyframes hardmode {
+        0%,
+        80% {
+          transform: translate(0px, -100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(0px, 0px);
+          opacity: 1;
+        }
+      }
+      .hard-content:hover {
+        text-decoration: none;
+        background-color: rgba(255, 255, 0, 1);
+        overflow: auto;
+      }
+      .hard-content:hover .hard-description {
+        animation: fadetwo 0.5s ease forwards;
+      }
+      @keyframes fadetwo {
+        to {
+          opacity: 1;
+        }
+      }
+      .hard-content:hover .hard-text {
+        animation: fadetworeverse 0.5s ease forwards;
+      }
+      @keyframes fadetworeverse {
+        to {
+          opacity: 0;
+        }
+      }
+      .hard-text span {
+        display: inline-block;
+        opacity: 0;
+        font-size: 30px;
+        font-family: "Poetsen One", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        color: rgba(255, 255, 255, 1);
+        transform: translateY(-50px);
+        animation: falltwo 1s ease forwards;
+        text-align: center;
+        margin-top: 45px;
+        text-decoration: none;
+        z-index: 1;
+        font-variation-settings: "BEVL" 0, "OVAL" 0, "QUAD" 0, "SIZE" 0;
+      }
+      .hard-block {
+        position: fixed;
+      }
+      .hard-card {
+        text-decoration: none;
+      }
+      .hard-text {
+        text-align: center;
+        text-decoration: none;
+        margin-left: 208px;
+      }
+      .hard-description {
+        text-decoration: none;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+        text-align: justify;
+        padding-inline: 25px;
+        opacity: 0;
+        margin: 10px;
+      }
+      .hard-content::-webkit-scrollbar {
+        display: none;
+      }
+      @keyframes falltwo {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hard-text span:nth-child(1) {
+        animation-delay: 3.2s;
+      }
+      .hard-text span:nth-child(2) {
+        animation-delay: 3.25s;
+      }
+      .hard-text span:nth-child(3) {
+        animation-delay: 3.3s;
+      }
+      .hard-text span:nth-child(4) {
+        animation-delay: 3.35s;
+      }
+      .insane-content {
+        width: 500px;
+        height: 125px;
+        background-color: rgba(100, 0, 100, 0.6);
+        border: 2px solid rgba(0, 0, 0, 1);
+        border-radius: 20px;
+        text-decoration: none;
+        animation: 3s insanemode ease;
+      }
+      @keyframes insanemode {
+        0%,
+        80% {
+          transform: translate(0px, -100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(0px, 0px);
+          opacity: 1;
+        }
+      }
+      .insane-content:hover {
+        text-decoration: none;
+        background-color: rgba(100, 0, 100, 1);
+        overflow: auto;
+      }
+      .insane-content:hover .insane-description {
+        animation: fadethree 0.5s ease forwards;
+      }
+      @keyframes fadethree {
+        to {
+          opacity: 1;
+        }
+      }
+      .insane-content:hover .insane-text {
+        animation: fadethreereverse 0.5s ease forwards;
+      }
+      @keyframes fadethreereverse {
+        to {
+          opacity: 0;
+        }
+      }
+      .insane-text span {
+        display: inline-block;
+        opacity: 0;
+        font-size: 30px;
+        font-family: "Poetsen One", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        color: rgba(255, 255, 255, 1);
+        transform: translateY(-50px);
+        animation: fallthree 1s ease forwards;
+        text-align: center;
+        margin-top: 45px;
+        text-decoration: none;
+        z-index: 1;
+        font-variation-settings: "BEVL" 0, "OVAL" 0, "QUAD" 0, "SIZE" 0;
+      }
+      .insane-block {
+        position: fixed;
+      }
+      .insane-card {
+        text-decoration: none;
+      }
+      .insane-text {
+        text-align: center;
+        text-decoration: none;
+        margin-left: 195px;
+      }
+      .insane-description {
+        text-decoration: none;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+        text-align: justify;
+        padding-inline: 25px;
+        opacity: 0;
+        margin: 10px;
+      }
+      .insane-content::-webkit-scrollbar {
+        display: none;
+      }
+      @keyframes fallthree {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .insane-text span:nth-child(1) {
+        animation-delay: 4s;
+      }
+      .insane-text span:nth-child(2) {
+        animation-delay: 4.05s;
+      }
+      .insane-text span:nth-child(3) {
+        animation-delay: 4.1s;
+      }
+      .insane-text span:nth-child(4) {
+        animation-delay: 4.15s;
+      }
+      .insane-text span:nth-child(5) {
+        animation-delay: 4.2s;
+      }
+      .insane-text span:nth-child(6) {
+        animation-delay: 4.25s;
+      }
+      .back {
+        background-color: rgba(105, 115, 5, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        animation: 1.5s backmode ease;
+      }
+      @keyframes backmode {
+        0%,
+        60% {
+          transform: translate(-100px, 100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(-100px, -25px);
+          opacity: 1;
+        }
+      }
+      .back:active {
+        background-color: rgba(155, 165, 10, 1);
+      }
+    </style>
+  </head>
+  <body spellcheck="false">
+    <video autoplay muted loop>
+      <source src="f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+      <track
+        label="Indonesia"
+        kind="captions"
+        srclang="id"
+        src="f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8-id.vtt"
+        default
+      />
+    </video>
+    <h1 class="mode-title">Select Difficulty</h1>
+    <div class="mode-container">
+      <!-- Card 1 -->
+      <a href="/d21f85ea38166303ce58e06134b5cc4a5c900c409ab2a500ff7c9225109a09bb/317b32c143692b9939c197f6a5df54f9698df9a4882fe8bf19608968662be4fa.html" class="normal-card">
+        <div class="normal-content">
+          <div class="normal-block">
+            <div class="normal-text">
+              <span>N</span>
+              <span>o</span>
+              <span>r</span>
+              <span>m</span>
+              <span>a</span>
+              <span>l</span>
+            </div>
+          </div>
+          <div class="normal-description">
+            Kumpulan soal untuk tingkat Sekolah Dasar dan Sekolah Menengah
+            Pertama, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Esse culpa eum, quisquam odio earum laboriosam fugit iure fuga quas
+            cumque iusto recusandae qui ea minima molestiae ab? Accusantium,
+            architecto beatae? Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Veniam harum accusamus distinctio, voluptatem
+            ducimus eaque error voluptas ipsum beatae in? Sequi vitae similique
+            officia nulla distinctio odit quidem. Sequi, ipsam!
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="/d21f85ea38166303ce58e06134b5cc4a5c900c409ab2a500ff7c9225109a09bb/ed5465b9220df9ce176d0bf30d6a317729bd9d37e4ae1cc015cb24c99af1df49.html" class="hard-card">
+        <div class="hard-content">
+          <div class="hard-block">
+            <div class="hard-text">
+              <span>H</span>
+              <span>a</span>
+              <span>r</span>
+              <span>d</span>
+            </div>
+          </div>
+          <div class="hard-description">
+            Kumpulan soal untuk tingkat Sekolah Dasar dan Sekolah Menengah
+            Pertama, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Esse culpa eum, quisquam odio earum laboriosam fugit iure fuga quas
+            cumque iusto recusandae qui ea minima molestiae ab? Accusantium,
+            architecto beatae? Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Veniam harum accusamus distinctio, voluptatem
+            ducimus eaque error voluptas ipsum beatae in? Sequi vitae similique
+            officia nulla distinctio odit quidem. Sequi, ipsam!
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="/d21f85ea38166303ce58e06134b5cc4a5c900c409ab2a500ff7c9225109a09bb/8ea748b09b117e6cc6919083ae680887324168be8e82565ff094302b0c260cb6.html" class="insane-card">
+        <div class="insane-content">
+          <div class="insane-block">
+            <div class="insane-text">
+              <span>I</span>
+              <span>n</span>
+              <span>s</span>
+              <span>a</span>
+              <span>n</span>
+              <span>e</span>
+            </div>
+          </div>
+          <div class="insane-description">
+            Kumpulan soal untuk tingkat Sekolah Dasar dan Sekolah Menengah
+            Pertama, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Esse culpa eum, quisquam odio earum laboriosam fugit iure fuga quas
+            cumque iusto recusandae qui ea minima molestiae ab? Accusantium,
+            architecto beatae? Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Veniam harum accusamus distinctio, voluptatem
+            ducimus eaque error voluptas ipsum beatae in? Sequi vitae similique
+            officia nulla distinctio odit quidem. Sequi, ipsam!
+          </div>
+        </div>
+      </a>
+    </div>
+    <button class="back" onclick="window.history.go(-1)">Back</button>
+  </body>
+</html>

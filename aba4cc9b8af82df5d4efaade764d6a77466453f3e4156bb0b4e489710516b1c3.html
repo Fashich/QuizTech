@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiztech - Select Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poetsen+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poetsen+One&display=swap");
+    </style>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+      body {
+        background: #f0f2f5;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        text-decoration: none;
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+      }
+      .mode-title {
+        top: 12%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        font-size: 35px;
+        font-weight: bold;
+        background-image: url("e54faa32853ba20052d11b3c8eaab40c4b24baf56866c0451e038cb501152df2.jpg");
+        border: 2px solid rgb(0, 0, 0);
+        width: 250px;
+        height: 45px;
+        color: rgb(255, 255, 255);
+        cursor: default;
+        -webkit-text-stroke: 1px;
+        -webkit-text-stroke-color: rgb(0, 0, 0);
+        border-radius: 10px;
+        text-align: center;
+        white-space: nowrap;
+        animation: 0.5s titlemode ease 0s;
+      }
+      @keyframes titlemode {
+        from {
+          transform: translate(-125px, -150px);
+        }
+        to {
+          transform: translate(-125px, -23px);
+        }
+      }
+      .mode-container {
+        margin: 20px;
+      }
+      .beginners-content {
+        width: 500px;
+        height: 125px;
+        background-color: rgba(16, 72, 0, 0.6);
+        border: 2px solid rgba(0, 0, 0, 1);
+        border-radius: 20px;
+        text-decoration: none;
+        animation: 2.5s beginnersmode ease;
+      }
+      @keyframes beginnersmode {
+        0%,
+        80% {
+          transform: translate(0px, -150px);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(0px, 0px);
+          opacity: 1;
+        }
+      }
+      .beginners-content:hover {
+        text-decoration: none;
+        background-color: rgba(16, 72, 0, 1);
+        overflow: auto;
+      }
+      .beginners-content:hover .beginners-description {
+        animation: fadeone 0.5s ease forwards;
+      }
+      @keyframes fadeone {
+        to {
+          opacity: 1;
+        }
+      }
+      .beginners-content:hover .beginners-text {
+        animation: fadeonereverse 0.5s ease forwards;
+      }
+      @keyframes fadeonereverse {
+        to {
+          opacity: 0;
+        }
+      }
+      .beginners-text span {
+        display: inline-block;
+        opacity: 0;
+        font-size: 30px;
+        font-family: "Poetsen One", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        color: rgba(255, 255, 255, 1);
+        transform: translateY(-50px);
+        animation: fallone 1s ease forwards;
+        text-align: center;
+        margin-top: 45px;
+        text-decoration: none;
+        z-index: 1;
+        font-variation-settings: "BEVL" 0, "OVAL" 0, "QUAD" 0, "SIZE" 0;
+      }
+      .beginners-block {
+        position: fixed;
+      }
+      .beginners-card {
+        text-decoration: none;
+      }
+      .beginners-text {
+        text-align: center;
+        text-decoration: none;
+        margin-left: 150px;
+      }
+      .beginners-description {
+        text-decoration: none;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+        text-align: justify;
+        padding-inline: 25px;
+        opacity: 0;
+        margin: 10px;
+      }
+      .beginners-content::-webkit-scrollbar {
+        display: none;
+      }
+      @keyframes fallone {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .beginners-text span:nth-child(1) {
+        animation-delay: 2.6s;
+      }
+      .beginners-text span:nth-child(2) {
+        animation-delay: 2.65s;
+      }
+      .beginners-text span:nth-child(3) {
+        animation-delay: 2.7s;
+      }
+      .beginners-text span:nth-child(4) {
+        animation-delay: 2.8s;
+      }
+      .beginners-text span:nth-child(5) {
+        animation-delay: 2.9s;
+      }
+      .beginners-text span:nth-child(6) {
+        animation-delay: 2.95s;
+      }
+      .beginners-text span:nth-child(7) {
+        animation-delay: 3s;
+      }
+      .beginners-text span:nth-child(8) {
+        animation-delay: 3.05s;
+      }
+      .beginners-text span:nth-child(9) {
+        animation-delay: 3.1s;
+      }
+      .beginners-text span:nth-child(10) {
+        animation-delay: 3.15s;
+      }
+
+      .immediately-content {
+        width: 500px;
+        height: 125px;
+        background-color: rgba(255, 255, 0, 0.4);
+        border: 2px solid rgba(0, 0, 0, 1);
+        border-radius: 20px;
+        text-decoration: none;
+        margin-block: 20px;
+        animation: 2.75s immediatelymode ease;
+      }
+      @keyframes immediatelymode {
+        0%,
+        80% {
+          transform: translate(0px, -100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(0px, 0px);
+          opacity: 1;
+        }
+      }
+      .immediately-content:hover {
+        text-decoration: none;
+        background-color: rgba(255, 255, 0, 1);
+        overflow: auto;
+      }
+      .immediately-content:hover .immediately-description {
+        animation: fadetwo 0.5s ease forwards;
+      }
+      @keyframes fadetwo {
+        to {
+          opacity: 1;
+        }
+      }
+      .immediately-content:hover .immediately-text {
+        animation: fadetworeverse 0.5s ease forwards;
+      }
+      @keyframes fadetworeverse {
+        to {
+          opacity: 0;
+        }
+      }
+      .immediately-text span {
+        display: inline-block;
+        opacity: 0;
+        font-size: 30px;
+        font-family: "Poetsen One", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        color: rgba(255, 255, 255, 1);
+        transform: translateY(-50px);
+        animation: falltwo 1s ease forwards;
+        text-align: center;
+        margin-top: 45px;
+        text-decoration: none;
+        z-index: 1;
+        font-variation-settings: "BEVL" 0, "OVAL" 0, "QUAD" 0, "SIZE" 0;
+      }
+      .immediately-block {
+        position: fixed;
+      }
+      .immediately-card {
+        text-decoration: none;
+      }
+      .immediately-text {
+        text-align: center;
+        text-decoration: none;
+        margin-left: 135px;
+      }
+      .immediately-description {
+        text-decoration: none;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+        text-align: justify;
+        padding-inline: 25px;
+        opacity: 0;
+        margin: 10px;
+      }
+      .immediately-content::-webkit-scrollbar {
+        display: none;
+      }
+      @keyframes falltwo {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .immediately-text span:nth-child(1) {
+        animation-delay: 3.2s;
+      }
+      .immediately-text span:nth-child(2) {
+        animation-delay: 3.25s;
+      }
+      .immediately-text span:nth-child(3) {
+        animation-delay: 3.3s;
+      }
+      .immediately-text span:nth-child(4) {
+        animation-delay: 3.35s;
+      }
+      .immediately-text span:nth-child(5) {
+        animation-delay: 3.4s;
+      }
+      .immediately-text span:nth-child(6) {
+        animation-delay: 3.45s;
+      }
+      .immediately-text span:nth-child(7) {
+        animation-delay: 3.5s;
+      }
+      .immediately-text span:nth-child(8) {
+        animation-delay: 3.55s;
+      }
+      .immediately-text span:nth-child(9) {
+        animation-delay: 3.6s;
+      }
+      .immediately-text span:nth-child(10) {
+        animation-delay: 3.65s;
+      }
+      .immediately-text span:nth-child(11) {
+        animation-delay: 3.7s;
+      }
+      .extreme-content {
+        width: 500px;
+        height: 125px;
+        background-color: rgba(100, 0, 100, 0.6);
+        border: 2px solid rgba(0, 0, 0, 1);
+        border-radius: 20px;
+        text-decoration: none;
+        animation: 3s extrememode ease;
+      }
+      @keyframes extrememode {
+        0%,
+        80% {
+          transform: translate(0px, -100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(0px, 0px);
+          opacity: 1;
+        }
+      }
+      .extreme-content:hover {
+        text-decoration: none;
+        background-color: rgba(100, 0, 100, 1);
+        overflow: auto;
+      }
+      .extreme-content:hover .extreme-description {
+        animation: fadethree 0.5s ease forwards;
+      }
+      @keyframes fadethree {
+        to {
+          opacity: 1;
+        }
+      }
+      .extreme-content:hover .extreme-text {
+        animation: fadethreereverse 0.5s ease forwards;
+      }
+      @keyframes fadethreereverse {
+        to {
+          opacity: 0;
+        }
+      }
+      .extreme-text span {
+        display: inline-block;
+        opacity: 0;
+        font-size: 30px;
+        font-family: "Poetsen One", sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        color: rgba(255, 255, 255, 1);
+        transform: translateY(-50px);
+        animation: fallthree 1s ease forwards;
+        text-align: center;
+        margin-top: 45px;
+        text-decoration: none;
+        z-index: 1;
+        font-variation-settings: "BEVL" 0, "OVAL" 0, "QUAD" 0, "SIZE" 0;
+      }
+      .extreme-block {
+        position: fixed;
+      }
+      .extreme-card {
+        text-decoration: none;
+      }
+      .extreme-text {
+        text-align: center;
+        text-decoration: none;
+        margin-left: 165px;
+      }
+      .extreme-description {
+        text-decoration: none;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+        text-align: justify;
+        padding-inline: 25px;
+        opacity: 0;
+        margin: 10px;
+      }
+      .extreme-content::-webkit-scrollbar {
+        display: none;
+      }
+      @keyframes fallthree {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .extreme-text span:nth-child(1) {
+        animation-delay: 4s;
+      }
+      .extreme-text span:nth-child(2) {
+        animation-delay: 4.05s;
+      }
+      .extreme-text span:nth-child(3) {
+        animation-delay: 4.1s;
+      }
+      .extreme-text span:nth-child(4) {
+        animation-delay: 4.15s;
+      }
+      .extreme-text span:nth-child(5) {
+        animation-delay: 4.2s;
+      }
+      .extreme-text span:nth-child(6) {
+        animation-delay: 4.25s;
+      }
+      .extreme-text span:nth-child(7) {
+        animation-delay: 4.3s;
+      }
+      .extreme-text span:nth-child(8) {
+        animation-delay: 4.35s;
+      }
+      .back {
+        background-color: rgba(105, 115, 5, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        animation: 1.5s backmode ease;
+      }
+      @keyframes backmode {
+        0%,
+        60% {
+          transform: translate(-100px, 100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(-100px, -25px);
+          opacity: 1;
+        }
+      }
+      .back:active {
+        background-color: rgba(155, 165, 10, 1);
+      }
+    </style>
+  </head>
+  <body spellcheck="false">
+    <video autoplay muted loop>
+      <source
+        src="f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+      <track
+        label="Indonesia"
+        kind="captions"
+        srclang="id"
+        src="f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8-id.vtt"
+        default
+      />
+    </video>
+    <h1 class="mode-title">Select Mode</h1>
+    <div class="mode-container">
+      <!-- Card 1 -->
+      <a href="f06c64ed51a565c6b1c308a8a404361431ddbb0bdc9cafe3c158bbe0d4ae4785.html" class="beginners-card">
+        <div class="beginners-content">
+          <div class="beginners-block">
+            <div class="beginners-text">
+              <span>E</span>
+              <span>l</span>
+              <span>e</span>
+              <span>m</span>
+              <span>e</span>
+              <span>n</span>
+              <span>t</span>
+              <span>a</span>
+              <span>r</span>
+              <span>y</span>
+            </div>
+          </div>
+          <div class="beginners-description">
+            Kumpulan soal untuk tingkat Sekolah Dasar dan Sekolah Menengah
+            Pertama, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Esse culpa eum, quisquam odio earum laboriosam fugit iure fuga quas
+            cumque iusto recusandae qui ea minima molestiae ab? Accusantium,
+            architecto beatae? Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Veniam harum accusamus distinctio, voluptatem
+            ducimus eaque error voluptas ipsum beatae in? Sequi vitae similique
+            officia nulla distinctio odit quidem. Sequi, ipsam!
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="d978e0e487928a68d48323006a8eca6e4925b3ea7e8ed50b326325668c93b2ac.html" class="immediately-card">
+        <div class="immediately-content">
+          <div class="immediately-block">
+            <div class="immediately-text">
+              <span>I</span>
+              <span>m</span>
+              <span>m</span>
+              <span>e</span>
+              <span>d</span>
+              <span>i</span>
+              <span>a</span>
+              <span>t</span>
+              <span>e</span>
+              <span>l</span>
+              <span>y</span>
+            </div>
+          </div>
+          <div class="immediately-description">
+            Kumpulan soal untuk tingkat Sekolah Dasar dan Sekolah Menengah
+            Pertama, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Esse culpa eum, quisquam odio earum laboriosam fugit iure fuga quas
+            cumque iusto recusandae qui ea minima molestiae ab? Accusantium,
+            architecto beatae? Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Veniam harum accusamus distinctio, voluptatem
+            ducimus eaque error voluptas ipsum beatae in? Sequi vitae similique
+            officia nulla distinctio odit quidem. Sequi, ipsam!
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="d21f85ea38166303ce58e06134b5cc4a5c900c409ab2a500ff7c9225109a09bb.html" class="extreme-card">
+        <div class="extreme-content">
+          <div class="extreme-block">
+            <div class="extreme-text">
+              <span>A</span>
+              <span>d</span>
+              <span>v</span>
+              <span>a</span>
+              <span>n</span>
+              <span>c</span>
+              <span>e</span>
+              <span>d</span>
+            </div>
+          </div>
+          <div class="extreme-description">
+            Kumpulan soal untuk tingkat Sekolah Dasar dan Sekolah Menengah
+            Pertama, Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Esse culpa eum, quisquam odio earum laboriosam fugit iure fuga quas
+            cumque iusto recusandae qui ea minima molestiae ab? Accusantium,
+            architecto beatae? Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Veniam harum accusamus distinctio, voluptatem
+            ducimus eaque error voluptas ipsum beatae in? Sequi vitae similique
+            officia nulla distinctio odit quidem. Sequi, ipsam!
+          </div>
+        </div>
+      </a>
+    </div>
+    <button class="back" onclick="window.history.go(-1)">Back</button>
+  </body>
+</html>

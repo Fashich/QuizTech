@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hard Mode - Intructions</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+      body {
+        background: #f0f2f5;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        text-decoration: none;
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+      }
+      .container {
+        width: 600px;
+        height: 300px;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.4);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+        border: 4px solid rgba(0, 0, 0);
+        border-radius: 50px;
+        overflow: auto;
+      }
+      .container::-webkit-scrollbar {
+        display: none;
+      }
+      .container-box {
+        text-align: center;
+      }
+      .logo-game-title {
+        padding-top: 20px;
+      }
+      .logo-game {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        position: absolute;
+        z-index: 999;
+        right: 245px;
+      }
+      .judul-game {
+        font-size: 35px;
+        font-weight: bold;
+        background-image: url("../e54faa32853ba20052d11b3c8eaab40c4b24baf56866c0451e038cb501152df2.jpg");
+        border: 2px solid rgb(0, 0, 0);
+        width: 200px;
+        height: 45px;
+        margin-left: 33%;
+        margin-top: 80px;
+        border-radius: 10px;
+        color: rgb(255, 255, 255);
+        -webkit-text-stroke: 1px;
+        -webkit-text-stroke-color: rgb(0, 0, 0);
+        cursor: default;
+        position: absolute;
+      }
+      .description-help-header {
+        text-align: center;
+        font-weight: bolder;
+        padding-inline: 25px;
+        padding-block: 10px;
+        padding-top: 7%;
+      }
+      .attention {
+        font-size: 10px;
+      }
+      .description-help {
+        text-align: justify;
+        padding-inline: 25px;
+        padding-block: 10px;
+      }
+      .description-help-footer {
+        text-align: justify;
+        padding-inline: 25px;
+        padding-block: 10px;
+      }
+      .back-difficulty  {
+        background-color: rgba(255, 165, 0, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -200%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+      }
+      .back-difficulty:active {
+        background-color: rgba(255, 165, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+      .back-mode  {
+        background-color: rgba(255, 0, 0, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-170%, -200%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+      }
+      .back-mode:active {
+        background-color: rgba(255, 0, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+      .start-button  {
+        background-color: rgba(0, 255, 0, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(70%, -200%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        opacity: 1;
+        animation: 5s upfade ease forwards 0s, 0.5s fadescout ease forwards 5.5s;
+      }
+      .start-button:active {
+        background-color: rgba(100, 255, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    clip-path: inset(0 3ch 0 0);
+    animation: l4 1s steps(4) infinite;
+    color: rgba(255, 255, 255, 1);
+    cursor: default;
+        -webkit-text-stroke: 1px;
+        -webkit-text-stroke-color: rgb(0, 0, 0);
+        top: 50%;
+        left: 50%;
+        transform: translate(140%, 500%);
+          }
+          @keyframes upfade {
+            0% {
+              transform: translate(140%, 1500%);
+            }
+            100% {
+              transform: translate(140%, 500%);
+            }
+          }
+  .loader:before {
+    content:"Loading..."
+  }
+  @keyframes l4 {
+    to{
+        clip-path: inset(0 -1ch 0 0)
+    }
+}
+  @keyframes upfade {
+    0% {
+      transform: translate(70%, 1500%);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(70%, -200%);
+      opacity: 0;
+    }
+}
+  @keyframes fadescout {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+</style>
+<body>
+    <body spellcheck="false">
+        <video autoplay muted loop>
+          <source src="../f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+          <track
+            label="Indonesia"
+            kind="captions"
+            srclang="id"
+            src="f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8-id.vtt"
+            default
+          />
+        </video>
+        <div class="container">
+            <div class="container-box">
+              <!-- <div class="logo-game-title">
+                <img src="../6f727179f381b97312c97984e48b99d00bae52213a0b310c6ddefbdbcf8e3946.png" class="logo-game" alt="logo" draggable="false" />
+              </div>
+              <div class="judul-game">𝒬𝓊𝒾𝓏𝒯𝑒𝒸𝒽</div> -->
+              <h1 class="description-help-header">
+                How To Play <br> <p class="attention">Scroll for read more</p>
+              </h1>
+              <p class="description-help">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias
+                saepe, accusantium quaerat quibusdam debitis totam quo rerum tempora
+                eaque atque doloribus nihil rem esse in? Sequi similique autem maiores
+                mollitia.
+              </p>
+              <p class="description-help">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias
+                saepe, accusantium quaerat quibusdam debitis totam quo rerum tempora
+                eaque atque doloribus nihil rem esse in? Sequi similique autem maiores
+                mollitia.
+              </p>
+              <p class="description-help">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias
+                saepe, accusantium quaerat quibusdam debitis totam quo rerum tempora
+                eaque atque doloribus nihil rem esse in? Sequi similique autem maiores
+                mollitia.
+              </p>
+              <p class="description-help">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias
+                saepe, accusantium quaerat quibusdam debitis totam quo rerum tempora
+                eaque atque doloribus nihil rem esse in? Sequi similique autem maiores
+                mollitia.
+              </p>
+              <p class="description-help-footer">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias
+                saepe, accusantium quaerat quibusdam debitis totam quo rerum tempora
+                eaque atque doloribus nihil rem esse in? Sequi similique autem maiores
+                mollitia.
+              </p>
+            </div>
+          </div>
+    <div class="loader"></div>
+    <button class="back-difficulty" onclick="window.history.go(-1)">Reselect Difficulty</button>
+    <button class="back-mode" onclick="window.history.go(-2)">Reselect Mode</button>
+    <button class="start-button" onclick="window.location.href='./hard/=1.html'">Start</button>
+</body>
+</html>

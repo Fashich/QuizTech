@@ -1,0 +1,68 @@
+
+
+      #option-b:focus ~ #option-a {
+        opacity: 0;
+        transform: translateY(500px);
+      }
+      #option-b:focus {
+        opacity: 0;
+      }
+      #option-b:focus ~ #option-c {
+        opacity: 0;
+      }
+      #option-b:focus ~ #option-d {
+        opacity: 0;
+      }
+      #option-b:focus ~ #alert {
+        opacity: 1;
+      }
+      #option-b:focus ~ #main-menu {
+        opacity: 1;
+      }
+      #option-b:focus ~ #restart {
+        opacity: 1;
+      }
+
+      #option-c:focus ~ #option-a {
+        opacity: 0;
+      }
+      #option-c:focus ~ #option-b {
+        opacity: 0;
+      }
+      #option-c:focus {
+        opacity: 0;
+      }
+      #option-c:focus ~ #option-d {
+        opacity: 0;
+      }
+      #option-c:focus ~ #alert {
+        opacity: 1;
+      }
+      #option-c:focus ~ #main-menu {
+        opacity: 1;
+      }
+      #option-c:focus ~ #restart {
+        opacity: 1;
+      }
+
+      #option-d:focus ~ #option-a {
+        opacity: 0;
+      }
+      #option-d:focus ~ #option-b {
+        opacity: 0;
+      }
+      #option-d:focus ~ #option-c {
+        opacity: 0;
+      }
+      #option-d:focus {
+        opacity: 0;
+      }
+      #option-d:focus ~ #alert {
+        opacity: 1;
+      }
+      #option-d:focus ~ #main-menu {
+        opacity: 1;
+      }
+      #option-d:focus ~ #restart {
+        opacity: 1;
+      }

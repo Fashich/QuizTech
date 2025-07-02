@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>𝒬𝓊𝒾𝓏𝒯𝑒𝒸𝒽</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+        video {
+          position: fixed;
+          top: 0;
+          left: 0;
+          min-width: 100%;
+          min-height: 100%;
+          z-index: -1;
+      }
+      .logo-game {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        margin-left: 580px;
+        margin-top: 30px;
+        animation: logo-game .5s ease;
+      }
+      @keyframes logo-game {
+        0%, 50% {
+          transform: translateY(-400px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      .judul-game {
+        font-size: 35px;
+        font-weight: bold;
+        background-image: url('e54faa32853ba20052d11b3c8eaab40c4b24baf56866c0451e038cb501152df2.jpg');
+        border: 2px solid rgb(0, 0, 0);
+        width: 168px;
+        height: 45px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 10px;
+        color: rgb(255,255,255);
+        margin-left: 530px;
+        margin-top: -20px;
+        -webkit-text-stroke: 1px;
+        -webkit-text-stroke-color: rgb(0, 0, 0);
+        cursor: default; 
+        animation: judul-game .5s ease;
+      }
+      @keyframes judul-game {
+        0% {
+          transform: translateY(-400px);
+        }
+        50%, 100% {
+          transform: translateY(0);
+        }
+      }
+      .slogan-game-text {
+        font-size: 20px;
+        font-family: monospace;
+        margin-left: 520px;
+        margin-top: 20px;
+      }
+      .text-ngopi-n {
+        cursor: default;
+        animation: text-ngopi-n 10s ease;
+      }
+      @keyframes text-ngopi-n {
+        0%, 5% {
+          opacity: 0%;
+        }
+        6%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-ngopi-g {
+        cursor: default; 
+        animation: text-ngopi-g 10s ease;
+      }
+      @keyframes text-ngopi-g {
+        0%, 7% {
+          opacity: 0%;
+        }
+        8%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-ngopi-o {
+        cursor: default; 
+        animation: text-ngopi-o 10s ease;
+      }
+      @keyframes text-ngopi-o {
+        0%, 6% {
+          opacity: 0%;
+        }
+        7%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-ngopi-p {
+        cursor: default; 
+        animation: text-ngopi-p 10s ease;
+      }
+      @keyframes text-ngopi-p {
+        0%, 9% {
+          opacity: 0%;
+        }
+        10%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-ngopi-i {
+        cursor: default; 
+        animation: text-ngopi-i 10s ease;
+      }
+      @keyframes text-ngopi-i {
+        0%, 10% {
+          opacity: 0%;
+        }
+        11%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-ngopi-tandatanya {
+        cursor: default; 
+        animation: text-ngopi-tandatanya 10s ease;
+      }
+      @keyframes text-ngopi-tandatanya {
+        0%, 8% {
+          opacity: 0%;
+        }
+        9%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-spasi-1 {
+        visibility: hidden;
+      }
+      .text-belajar-b {
+        cursor: default; 
+        animation: text-belajar-b 10s ease;
+      }
+      @keyframes text-belajar-b {
+        0%, 16% {
+          opacity: 0%;
+        }
+        17%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-belajar-e {
+        cursor: default; 
+        animation: text-belajar-e 10s ease;
+      }
+      @keyframes text-belajar-e {
+        0%, 12% {
+          opacity: 0%;
+        }
+        13%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-belajar-l {
+        cursor: default; 
+        animation: text-belajar-l 10s ease;
+      }
+      @keyframes text-belajar-l {
+        0%, 14% {
+          opacity: 0%;
+        }
+        15%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-belajar-a-1 {
+        cursor: default; 
+        animation: text-belajar-a-1 10s ease;
+      }
+      @keyframes text-belajar-a-1 {
+        0%, 11% {
+          opacity: 0%;
+        }
+        12%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-belajar-j {
+        cursor: default; 
+        animation: text-belajar-j 10s ease;
+      }
+      @keyframes text-belajar-j {
+        0%, 13% {
+          opacity: 0%;
+        }
+        14%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-belajar-a-2 {
+        cursor: default; 
+        animation: text-belajar-a-2 10s ease;
+      }
+      @keyframes text-belajar-a-2 {
+        0%, 15% {
+          opacity: 0%;
+        }
+        16%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-belajar-r {
+        cursor: default; 
+        animation: text-belajar-r 10s ease;
+      }
+      @keyframes text-belajar-r {
+        0%, 17% {
+          opacity: 0%;
+        }
+        18%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-spasi-2 {
+        visibility: hidden;
+      }
+      .text-dulu-d {
+        cursor: default; 
+        animation: text-dulu-d 10s ease;
+      }
+      @keyframes text-dulu-d {
+        0%, 19% {
+          opacity: 0%;
+        }
+        20%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-dulu-u-1 {
+        cursor: default; 
+        animation: text-dulu-u-1 10s ease;
+      }
+      @keyframes text-dulu-u-1 {
+        0%, 21% {
+          opacity: 0%;
+        }
+        22%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-dulu-l {
+        cursor: default; 
+        animation: text-dulu-l 10s ease;
+      }
+      @keyframes text-dulu-l {
+        0%, 18% {
+          opacity: 0%;
+        }
+        19%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-dulu-u-2 {
+        cursor: default; 
+        animation: text-dulu-u-2 10s ease;
+      }
+      @keyframes text-dulu-u-2 {
+        0%, 20% {
+          opacity: 0%;
+        }
+        21%, 100% {
+          opacity: 100%;
+        }
+      }
+      .text-dulu-tandaseru {
+        cursor: default; 
+        animation: text-dulu-tandaseru 10s ease;
+      }
+      @keyframes text-dulu-tandaseru {
+        0%, 22% {
+          opacity: 0%;
+        }
+        23%, 100% {
+          opacity: 100%;
+        }
+      }
+      .choose-action-game {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+      }
+      .play-text {
+        color: rgb(255,255,255);
+        background-color: rgb(255, 0, 0);
+        width: 150px;
+        height: 40px;
+        font-size: 30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        justify-content: center;
+        text-align: center;
+        border-radius: 20px;
+        text-decoration: none;
+        margin-left: 550px;
+        border: solid 3px rgb(216, 216, 216);
+        animation: play-text 3s ease;
+      }
+      @keyframes play-text {
+        0%, 75% {
+          opacity: 0;
+          transform: translateY(700px);
+        }
+        87.5%, 100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .play-text:hover {
+        background-color: rgb(255, 122, 122);
+        color: rgb(216, 216, 216);
+      }
+      .help-text {
+        color: rgb(255,255,255);
+        background-color: rgb(255, 255, 0);
+        width: 150px;
+        height: 40px;
+        font-size: 30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        justify-content: center;
+        text-align: center;
+        border-radius: 20px;
+        text-decoration: none;
+        margin-top: 35px;
+        margin-left: 550px;
+        border: solid 3px rgb(216, 216, 216);
+        animation: help-text 3.25s ease;
+      }
+      @keyframes help-text {
+        0%, 75% {
+          opacity: 0;
+          transform: translateY(700px);
+        }
+        87.5%, 100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .help-text:hover {
+        background-color: rgb(255, 255, 122);
+        color: rgb(216, 216, 216);
+      }
+      .about-text {
+        color: rgb(255,255,255);
+        background-color: rgb(30, 255, 0);
+        width: 150px;
+        height: 40px;
+        font-size: 30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        justify-content: center;
+        text-align: center;
+        border-radius: 20px;
+        text-decoration: none;
+        margin-top: 35px;
+        margin-left: 550px;
+        border: solid 3px rgb(216, 216, 216);
+        animation: about-text 3.5s ease;
+      }
+      .about-text:hover {
+        background-color: rgb(30, 255, 122);
+        color: rgb(216, 216, 216);
+      }
+      @keyframes about-text {
+        0%, 75% {
+          opacity: 0;
+          transform: translateY(700px);
+        }
+        87.5%, 100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .credits-text {
+        color: rgb(255,255,255);
+        background-color: rgb(0, 0, 255);
+        width: 150px;
+        height: 40px;
+        font-size: 30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        justify-content: center;
+        text-align: center;
+        border-radius: 20px;
+        text-decoration: none;
+        margin-top: 35px;
+        margin-left: 550px;
+        border: solid 3px rgb(216, 216, 216);
+        animation: credits-text 3.75s ease;
+      }
+      .credits-text:hover {
+        background-color: rgb(0, 0, 122);
+        color: rgb(216, 216, 216);
+      }
+      @keyframes credits-text {
+        0%, 75% {
+          opacity: 0;
+          transform: translateY(700px);
+        }
+        87.5%, 100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .customer-game {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        animation: customer-game 4s ease;
+      }
+      @keyframes customer-game {
+        0%, 75% {
+          opacity: 0;
+          transform: translateX(300px);
+        }
+        87.5%, 100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .social-game {
+        display: flex;
+        flex-direction: row;
+        margin-left: 1050px;
+        margin-top: -40px;
+        animation: social-game 4s ease;
+      }
+      @keyframes social-game {
+        0%, 75% {
+          opacity: 0;
+          transform: translateX(-300px);
+        }
+        87.5%, 100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .feedback-logo-title {
+        margin-left: 60px;
+      }
+      .customer-service-logo-title {
+        margin-left: 80px;
+      }
+      .feedback-game {
+        border-radius: 50px;
+        border: 2px solid rgb(0, 0, 0);
+      }
+      .customer-service-game {
+        border-radius: 50px;
+        border: 2px solid rgb(0, 0, 0);
+      }
+      .instagram {
+        border-radius: 50px;
+        border: 2px solid rgb(0, 0, 0);
+        
+      }
+      .github {
+        border-radius: 50px;
+        margin-left: 50px;
+        background-color: rgb(255,255,255);
+        border: 2px solid rgb(0, 0, 0);
+      }
+      .social-media-title {
+        font-family: fantasy;
+        font-size: 25px;
+        margin-left: 850px;
+        margin-top: -40px;
+        -webkit-text-stroke: 1px;
+        -webkit-text-stroke-color: rgb(0, 0, 0);
+        cursor: default; 
+        color: rgb(255, 255, 255);
+        animation: social-media-title 4.25s ease;
+      }
+      @keyframes social-media-title {
+        0%, 75% {
+          opacity: 0;
+          transform: translateY(300px);
+        }
+        87.5%, 100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <link rel="icon" type="image/png" href="6f727179f381b97312c97984e48b99d00bae52213a0b310c6ddefbdbcf8e3946.png">
+    </head>
+  <body>
+    <video autoplay muted loop>
+      <source src="f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8.mp4" type="video/mp4" >
+      Your browser does not support the video tag.
+      <track label="Indonesia" kind="captions" srclang="id" src="f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8-id.vtt" default>
+    </video>
+    <audio autoplay loop>
+      <source src="d5eebe8c7ecb8d31c8b46ddd0abe1a2d66599f6ece4399bea30e17deb6f9f259.mp3" type="audio/mp3">
+    </audio>
+    <div class="logo-game-title">
+    <img src="6f727179f381b97312c97984e48b99d00bae52213a0b310c6ddefbdbcf8e3946.png" class="logo-game" alt="logo" draggable="false">
+  </div>
+    <div class="judul-game">𝒬𝓊𝒾𝓏𝒯𝑒𝒸𝒽</div>
+    <div class="slogan-game-text"><span class="text-ngopi-n">N</span><span class="text-ngopi-g">g</span><span class="text-ngopi-o">o</span><span class="text-ngopi-p">p</span><span class="text-ngopi-i">i</span><span class="text-ngopi-tandatanya">?</span><span class="text-spasi-1"> </span><span class="text-belajar-b">B</span><span class="text-belajar-e">e</span><span class="text-belajar-l">l</span><span class="text-belajar-a-1">a</span><span class="text-belajar-j">j</span><span class="text-belajar-a-2">a</span><span class="text-belajar-r">r</span><span class="text-spasi-2"> </span><span class="text-dulu-d">D</span><span class="text-dulu-u-1">u</span><span class="text-dulu-l">l</span><span class="text-dulu-u-2">u</span><span class="text-dulu-tandaseru">!</span></div>
+    <div class="choose-action-game">
+    <a href="aba4cc9b8af82df5d4efaade764d6a77466453f3e4156bb0b4e489710516b1c3.html" class="play-text">Play</a>
+    <a href="106a5842fc5fce6f663176285ed1516dbb1e3d15c05abab12fdca46d60b539b7.html" class="help-text">Help</a>
+    <a href="a4262e1c9bcbc1721eb3fe13558154460a2b2a2d307daa32532478526ce6ccb1.html" class="about-text">About</a>
+    <a href="be379a30f1aa05d130468f4818fc077ccd2a8b9c972cf5dc901eed1be8587ab8.html" class="credits-text">Credits</a>
+  </div>
+  <div class="customer-game">
+    <div class="feedback-logo-title">
+      <abbr title="Ingin Mengulas Game ini? Kirim Disini!" class="feedback-text">
+        <a href="#">
+      <img src="e596899f114b5162402325dfb31fdaa792fabed718628336cc7a35a24f38eaa9.png" class="feedback-game" alt="feed" width="50px" height="50px" draggable="false">
+    </a>
+      </abbr>
+    </div>
+    <div class="customer-service-logo-title">
+      <abbr title="Anda Dapat Masalah? Hubungi Kami!" class="customer-service-text">
+        <a href="https://wa.me/62881036501919">
+      <img src="ec8202b6f9fb16f9e26b66367afa4e037752f3c09a18cefab426165e06a424b1.png" class="customer-service-game" alt="cs-game" width="50px" height="50px" draggable="false">
+    </a>
+    </abbr>
+    </div>
+  </div>
+    <div class="social-media-title">Social Media:</div>
+    <div class="social-game">
+    <div class="instagram-title">
+      <abbr title="Tekan atau Klik Untuk Mengunjungi Instagram Developer" class="instagram-text">
+        <a href="https://www.instagram.com/thalassaaddict._/">
+        <img src="46bf611ec5229d534602f8b5de78c10664116178f7ceda242a5b3612048c37bf.png" class="instagram" alt="instagram" width="50px" height="50px" draggable="false">
+      </a>
+      </abbr>
+    </div>
+    <div class="github-title">
+      <abbr title="Tekan atau Klik Untuk Mengunjungi GitHub Developer" class="github-text">
+        <a href="https://github.com/Fashich">
+        <img src="0988a7a66c59e22b30eb8e5c8c19a728cb2dd809a5eeaf7154b865e09a015990.png" class="github" alt="github" width="50px" height="50px" draggable="false">
+      </a>
+      </abbr>
+    </div>
+  </div>
+  <script>
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (const element of sheets) {
+            var elem = element;
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && (typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet")) {
+              var url = elem.href.replace(/(&|\\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Muat Ulang Langsung Diaktifkan!.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Tingkatkan Browser Anda. Browser Ini TIDAK Mendukung WebSocket Untuk Muat Ulang Langsung');
+    }
+  </script>
+  </body>
+</html>

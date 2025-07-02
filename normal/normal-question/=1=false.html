@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+      body {
+        background: #f0f2f5;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        text-decoration: none;
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+      }
+      .container {
+        width: 600px;
+        height: 200px;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.4);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        border: 4px solid rgba(0, 0, 0);
+        border-radius: 50px;
+        overflow: auto;
+      }
+      .container::-webkit-scrollbar {
+        display: none;
+      }
+      .container-box {
+        text-align: center;
+      }
+      #description-help-header {
+        text-align: center;
+        padding-inline: 25px;
+        padding-block: 10px;
+        padding-top: 14%;
+        font-size: 24px;
+        font-weight: bolder;
+        opacity: 1;
+      }
+      @keyframes questionanimation {
+        0%, 99.72% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .bold {
+        font-weight: bolder;
+      }
+      #option-b  {
+        background-color: rgba(255, 165, 0, 1);
+        font-size: 14px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-140%, -150%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        opacity: 1;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+      #option-b:active {
+        background-color: rgba(255, 165, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+      #option-a  {
+        background-color: rgba(255, 0, 0, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-140%, -350%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        opacity: 1;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+      #option-a:active {
+        background-color: rgba(255, 0, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+      #option-c  {
+        background-color: rgba(0, 255, 0, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(40%, -350%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        opacity: 1;
+        animation: 5s upfade ease forwards 0s, 0.5s fadescout ease forwards 5.5s;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+      #option-c:active {
+        background-color: rgba(100, 255, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+      #option-d  {
+        background-color: rgba(0, 0, 255, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(40%, -150%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        opacity: 1;
+        animation: 5s upfade ease forwards 0s, 0.5s fadescout ease forwards 5.5s;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+      #option-d:active {
+        background-color: rgba(0, 255, 255, 1);
+        color: rgb(205, 205, 205);
+      }
+      #main-menu  {
+        background-color: rgba(255, 0, 0, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-140%, -250%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        opacity: 1;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+      #main-menu:active {
+        background-color: rgba(255, 0, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+      #restart  {
+        background-color: rgba(255, 165, 0, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(40%, -250%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        opacity: 1;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+      #restart:active {
+        background-color: rgba(255, 165, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+      #alert {
+        font-weight: bolder;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25%);
+        font-size: 20px;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        position: absolute;
+      }
+      #great-alert {
+        font-weight: bolder;
+        top: 50%;
+        left: 50%;
+        transform: translate(-45%, 150%);
+        font-size: 20px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        -webkit-text-stroke: .3px;
+        -webkit-text-stroke-color: rgb(255, 255, 255);
+        position: absolute;
+      }
+      #option-a:focus ~ #great-alert {
+        opacity: 1;
+      }
+      #option-a:focus ~ #correct-main-menu {
+        opacity: 1;
+      }
+      #option-a:focus ~ #next-level {
+        opacity: 1;
+      }
+      #option-a:focus {
+        opacity: 0;
+      }
+      #option-a:focus ~ #option-b {
+        opacity: 0;
+      }
+      #option-a:focus ~ #option-c {
+        opacity: 0;
+      }
+      #option-a:focus ~ #option-d {
+        opacity: 0;
+      }
+      #correct-main-menu  {
+        background-color: rgba(255, 0, 0, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-140%, -250%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        opacity: 1;
+        cursor: pointer;
+      }
+      #correct-main-menu:active {
+        background-color: rgba(255, 0, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+      #next-level  {
+        background-color: rgba(0, 255, 0, 1);
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        top: 90%;
+        left: 50%;
+        transform: translate(40%, -250%);
+        position: absolute;
+        font-weight: bolder;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        opacity: 0;
+        cursor: pointer;
+      }
+      #next-level:active {
+        background-color: rgba(100, 255, 100, 1);
+        color: rgb(205, 205, 205);
+      }
+  </style>
+<body>
+    <body spellcheck="false">
+        <video autoplay muted loop>
+          <source src="../../f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+          <track
+            label="Indonesia"
+            kind="captions"
+            srclang="id"
+            src="f94e4092a1b9a4129bb575bf54a88f63ba1cd3d2682777761aa1cd7ca2a69fa8-id.vtt"
+            default
+          />
+        </video>
+        <div class="container">
+            <div class="container-box">
+              <!-- <div class="logo-game-title">
+                <img src="../6f727179f381b97312c97984e48b99d00bae52213a0b310c6ddefbdbcf8e3946.png" class="logo-game" alt="logo" draggable="false" />
+              </div>
+              <div class="judul-game">𝒬𝓊𝒾𝓏𝒯𝑒𝒸𝒽</div> -->
+              <!-- <h1 id="description-help-header" class="description-help-header" tabindex="0">
+                Siapa penulis novel <span class="bold">'Laskar Pelangi'</span>?
+              </h1> -->
+              <h1 id="alert" class="alert">Unfortunately, your score is 0%.</h1>
+            </div>
+          </div>
+    <!-- <div class="loader"></div>
+    <button id="option-a" class="correct">Andrea Hirata</button>
+    <button id="option-b" class="wrong" onclick="window.location.href='./=1=false.html'">Pramoedya Ananta Toer</button>
+    <button id="option-c" class="wrong" onclick="window.location.href='./=1=false.html'">Chairil Anwar</button>
+    <button id="option-d" class="wrong" onclick="window.location.href='./=1=false.html'">Marga T. T.</button> -->
+    <button id="main-menu" class="main-menu" onclick="window.location.href='../../index.html'">Main Menu</button>
+    <button id="restart" class="restart" onclick="alert('This feature will be available soon.')">Restart</button>
+    <!-- <button id="correct-main-menu" class="correct-main-menu">Main Menu</button>
+    <button id="next-level" class="next-level">Next Level</button>
+    <h1 id="great-alert" class="great-alert">Correct, the answer is Andrea Hirata</h1> -->
+</body>
+</html>

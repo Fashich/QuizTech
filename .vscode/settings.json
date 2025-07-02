@@ -1,0 +1,10 @@
+{
+  "liveServer.settings.port": 5501,
+  "html.validate": false,
+  "stylelint.rules.inlineStyles": "ignore",
+  "[html]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
+  }
+}
